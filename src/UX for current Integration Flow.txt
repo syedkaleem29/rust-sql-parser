@@ -1,0 +1,105 @@
+Present Integration Flow for various cases.
+
+Case 1: Single Org in Invoice.
+
+	Purchase Invoice Plan:
+		Purchase will be handled by Books.
+		After purchase will be redirected to Books and then to Invoice.
+
+		Visiting Invoice:
+			Org is in Invoice. No handling necessary. Provisioning for Invoice will be provided.
+		Visiting Books:
+			Option to migrate to a Books Plan(migrate to Books will be replaced by this screen. Purchasing a books plan will migrate org to Books automatically) will be provided.
+
+	Purchase/Upgrading-to Books Plan:
+		Purchase will be handled by Books.
+		During Purchase org will be migrated to Books.
+		Payments will redirect to Books. The user can continue using. No handling necessary.
+
+		Visiting Invoice:
+			Because there is only one org and because it has already been moved. Automatic redirect to Books will happen.
+		Visiting Books:
+			No special handling is necessary.
+
+Case 2: Mutliple Org in Invoice.
+	
+	Purchase Invoice Plan:
+		Same as Case 1
+		Redirect will take to org automatically if the default org is purchased, else it will show org list.
+
+		Visiting Invoice:
+			1) Will be taken to last visited Invoice org or the default Invoice org.
+		Visiting Books:
+			Same as Case 1 
+
+	Purchase/Upgrade-to Books Plan:
+		Same as Case 1.
+		Because there is only one org in Books in this case. Redirection will take to migrated org automatically.
+
+		Visiting Invoice:
+			1) Default org is upgraded to Books, Invoice Org list will be displayed.
+			2) Non-Default org is upgraded to Books, Will be taken to default Invoice Org.
+
+		Visiting Books:
+			Same as Case 1
+
+
+Case 3: Multiple Invoice org. Multiple Books Org.
+	
+	Purchase Invoice Plan:
+		Same as Case 1
+		Redirect will take to org automatically if the default org is purchased, else it will show org list.
+
+		Visiting Invoice:
+			1) Will be taken to last visited Invoice org or the default Invoice org.
+			2) If no default is set and last visited org not set in cookie, Invoice Org List will be shown.
+		Visiting Books:
+			1) Will be taken to last visited Books org or the default Books org.
+			2) If no default is set and last visited org not set in cookie, Books Org List will be shown.
+
+	Purchase/Upgrade-to Books Plan:
+		Same as Case 1.
+		Redirection will take to migrated org automatically.
+
+		Visiting Invoice:
+			1) Default org is upgraded to Books, Invoice Org list will be displayed.
+			2) Non-Default org is upgraded to Books, Will be taken to default Invoice Org.
+		Visiting Books:
+			1) Will be taken to last visited Books org or the default Books org.
+			2) If no default is set and last visited org not set in cookie, Books Org List will be shown.
+
+
+Case 4: Multiple Books Org.
+
+	Purchase Books Plan:
+		No special handling necesary.
+
+		Visiting Invoice:
+			1) If no invoice org is present, will be redirected to Books.
+			2) If not, will be taken to last visited Invoice org or the default Invoice org.
+			3) If no default is set and last visited org not set in cookie, Invoice Org List will be shown.
+		Visting Books:
+			1) Will be taken to last visited Books org or the default Books org.
+			2) If no default is set and last visited org not set in cookie, Books Org List will be shown.
+
+
+	Purchase/Downgrade-to Invoice Plan:
+		Purchase will be handled by Books.
+		Org will be downgraded to Invoice.
+		Redirection will be done to Invoice.
+		Org List may be displayed or will be redirected to the migratted org based on conditions mentioned above.
+
+		Visiting Invoice:
+			1) If one Invoice, will redirect to the org.
+			2) Else, will be taken to last visited Invoice org or the default Invoice org.
+			3) If no default is set and last visited org not set in cookie, Invoice Org List will be shown.
+		Visiting Books:
+			1) Will be taken to last visited Books org or the default Books org.
+			2) If no default is set and last visited org not set in cookie, Books Org List will be shown.
+
+
+
+
+
+
+
